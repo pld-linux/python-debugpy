@@ -5,7 +5,7 @@ Summary:	Implementation of the Debug Adapter Protocol for Python 2
 Summary(pl.UTF-8):	Implementacja protokołu Debug Adapter Protocol dla Pythona 2
 Name:		python-debugpy
 Version:	1.3.0
-Release:	7
+Release:	8
 License:	MIT with EPL v1.0, PSF v2, BSD parts
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/debugpy/
@@ -22,6 +22,10 @@ BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	unzip
 Requires:	python-modules >= 1:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%ifnarch %{ix86} %{x8664}
+%define		_enable_debug_packages	0
+%endif
 
 %description
 debugpy is an implementation of the Debug Adapter Protocol for Python.
